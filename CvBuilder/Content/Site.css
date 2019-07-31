@@ -1,0 +1,60 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.vertical-center {
+    min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}
+#sections {
+    margin-right: 2px;
+}
+#section {
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+#sections ul {
+    list-style-type: none;
+}
+#sections ul li {
+    width: 100px;
+    height: 60px;
+    margin-bottom: 5px;
+}
+    #sections ul li a {
+        text-decoration: none;
+        width: inherit;
+        background-color: #0389d7;
+        border: 1px solid #0389d7;
+        border-radius: 5px;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+    }
+    #sections ul li a:hover {
+        background-color: black;
+        border-color: black;
+    }
