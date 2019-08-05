@@ -4081,23 +4081,16 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-item {
   margin-bottom: -1px;
-  color: black;
-  background-color: white;
-  border: 1px solid grey;
 }
 
 .nav-tabs .nav-link {
   border: 1px solid transparent;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  background-color: grey;
-  color: white;
 }
 
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
   border-color: #e9ecef #e9ecef #dee2e6;
-  background-color: darkblue;
-  color:white;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -4133,7 +4126,6 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   text-align: center;
-  margin-right: 1px;
 }
 
 .nav-justified .nav-item {
