@@ -34,3 +34,4 @@ CvBuilder/obj/Debug/CvBuilder.csprojAssemblyReference.cache
 CvBuilder/obj/Debug/CvBuilder.dll
 CvBuilder/obj/Debug/CvBuilder.pdb
 CvBuilder/.vs/config/applicationhost.config
+*.config
