@@ -1,0 +1,51 @@
+﻿@model CvBuilder.Models.ContactInfo
+
+@using (Html.BeginForm("SaveContactInfo", "Builder", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div>
+    <h4>Contact Info</h4><hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="form-group col-lg-12">
+            @Html.LabelFor(model => model.FullName, "Full name", null)
+            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "your full name" } })
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(model => model.Email, "Email address", null)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "someone@example.com" } })
+        </div>
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(model => model.Email, "Phone number", null)
+            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", placeholder = "phone number" } })
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(model => model.Location, "Location", null)
+            @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", placeholder = "city, country" } })
+
+        </div>
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(model => model.Birthday, "Birth Date (optional)", null)
+            @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-12">
+            @Html.LabelFor(model => model.Website, "Website (optional)", null)
+            @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control", placeholder = "myawesomewebsite.net" } })
+        </div>
+        <div class="form-group col-lg-12">
+            @Html.LabelFor(model => model.LinkedinProfile, "LinkedIn Profile (optional)", null)
+            @Html.EditorFor(model => model.LinkedinProfile, new { htmlAttributes = new { @class = "form-control", placeholder = "linkedin.com/in/XXXXXXXXXXXXXX" } })
+        </div>
+    </div>
+    
+    <input type="button" value="Save" class="btn btn-info save-section" />
+</div>
+}
+

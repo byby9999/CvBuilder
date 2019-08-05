@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    /*max-width: 280px;*/
 }
 .vertical-center {
     min-height: 100%; /* Fallback for browsers do NOT support vh unit */
