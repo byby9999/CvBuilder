@@ -80,3 +80,6 @@ CvBuilder/obj/Debug/CvBuilder.csproj.FileListAbsolute.txt
 *.cache
 CvBuilder/obj/Debug/CvBuilder.dll
 CvBuilder/obj/Debug/CvBuilder.pdb
+CvBuilder/packages.config
+CvBuilder/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+CvBuilder/obj/Debug/CvBuilder.pdb
