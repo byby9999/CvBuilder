@@ -99,3 +99,17 @@ CvBuilder/bin/CvBuilder.dll.config
 *.dll
 CvBuilder/.vs/config/applicationhost.config
 CvBuilder/.vs/config/applicationhost.config
+CvBuilder/obj/Debug/CvBuilder.dll
+*.dll
+*.dll
+CvBuilder/obj/Debug/CvBuilder.dll
+CvBuilder/obj/Debug/CvBuilder.csprojAssemblyReference.cache
+CvBuilder/obj/Debug/CvBuilder.dll
+CvBuilder/bin/CvBuilder.pdb
+CvBuilder/bin/CvBuilder.pdb
+CvBuilder/obj/Debug/CvBuilder.csproj.FileListAbsolute.txt
+CvBuilder/obj/Debug/CvBuilder.csproj.FileListAbsolute.txt
+CvBuilder/obj/Debug/CvBuilder.csproj.FileListAbsolute.txt
+CvBuilder/obj/Debug/CvBuilder.csproj.CoreCompileInputs.cache
+*.cache
+CvBuilder/obj/Debug/CvBuilder.csproj.CoreCompileInputs.cache
