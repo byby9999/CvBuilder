@@ -9,6 +9,7 @@ namespace CvBuilder.Controllers
 {
     public class BuilderController : Controller
     {
+        private CvMasterModel MasterModel { get; set; }
         // GET: Builder
         public ActionResult Index()
         {
@@ -18,8 +19,9 @@ namespace CvBuilder.Controllers
         // GET: Builder/Details/5
         public ActionResult Editor()
         {
-            CvMasterModel model = new CvMasterModel();
-            return View(model);
+            if (MasterModel == null)
+                MasterModel = new CvMasterModel();
+            return View(MasterModel);
         }
 
         public ActionResult FormAddContactInfo(ContactInfo passed)
@@ -67,9 +69,15 @@ namespace CvBuilder.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SaveData()
+        public ActionResult SaveData(CvMasterModel masterModel)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+
+            }
+
+            MasterModel = masterModel;
+            return RedirectToAction("Editor");
         }
     }
 }
