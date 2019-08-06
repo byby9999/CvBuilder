@@ -1,9 +1,5 @@
 ﻿@model CvBuilder.Models.ContactInfo
 
-@using (Html.BeginForm("SaveContactInfo", "Builder", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    
 <div>
     <h4>Contact Info</h4><hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -50,5 +46,5 @@
     </div>
     
 </div>
-}
+
 

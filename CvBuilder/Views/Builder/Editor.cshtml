@@ -1,4 +1,4 @@
-﻿
+﻿@model CvBuilder.Models.CvMasterModel 
 @{
     ViewBag.Title = "Edit my CV online";
 }
@@ -48,44 +48,44 @@
     }
 </style>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0e4042077d1902304d1d05785483433945ee5c31
 <h2>Edit your information by sections</h2>
+@using (Html.BeginForm("SaveData", "Builder", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
 
-<button class="collapsible">My contact info</button>
-<div class="content">
-    @Html.Action("FormAddContactInfo", "Builder")
-</div>
-<button class="collapsible">My Professional Experience</button>
-<div class="content">
-    @Html.Action("FormAddWork", "Builder")
-</div>
-<button class="collapsible">My Educational History</button>
-<div class="content">
-    @Html.Action("FormAddEducation", "Builder")
-</div>
-<button class="collapsible">Language skills</button>
-<div class="content">
-    @Html.Action("FormAddLanguages", "Builder")
-</div>
-<button class="collapsible">Technical Skills</button>
-<div class="content">
-    @Html.Action("FormAddSkills", "Builder")
-</div>
-<button class="collapsible">Trainings, certifications, awards</button>
-<div class="content">
-    @Html.Action("FormAddCertifications", "Builder")
-</div>
-<button class="collapsible">References and other info</button>
-<div class="content">
-    @Html.Action("FormAddOtherInfo", "Builder")
-</div>
+    <button type="button" class="collapsible">My contact info</button>
+    <div class="content">
+        @Html.Action("FormAddContactInfo", "Builder", Model.ContactInfo)
+    </div>
+    <button type="button" class="collapsible">My Professional Experience</button>
+    <div class="content">
+        @Html.Action("FormAddWork", "Builder", Model.Work)
+    </div>
+    <button type="button" class="collapsible">My Educational History</button>
+    <div class="content">
+        @Html.Action("FormAddEducation", "Builder", Model.Education)
+    </div>
+    <button type="button" class="collapsible">Language skills</button>
+    <div class="content">
+        @Html.Action("FormAddLanguages", "Builder", Model.Languages)
+    </div>
+    <button type="button" class="collapsible">Technical Skills</button>
+    <div class="content">
+        @Html.Action("FormAddSkills", "Builder", Model.Skills)
+    </div>
+    <button type="button" class="collapsible">Trainings, certifications, awards</button>
+    <div class="content">
+        @Html.Action("FormAddCertifications", "Builder", Model.Certifications)
+    </div>
+    <button type="button" class="collapsible">References and other info</button>
+    <div class="content">
+        @Html.Action("FormAddOtherInfo", "Builder", Model.OtherInfo)
+    </div>
 
-<div class="col-lg-12 col-md-12 text-center">
-    <button type="button" class="btn btn-lg btn-success">Generate my CV</button>
-</div>
+    <div class="col-lg-12 col-md-12 text-center">
+        <button type="submit" class="btn btn-lg btn-success">Generate my CV</button>
+    </div>
+}
 <div aria-live="polite" aria-atomic="true" style="position:absolute; top:10px; right:10px; min-width: 300px; z-index: 999;">
     <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="true" data-delay="1000" style="position: absolute; top: 0; right: 0;">
         <div class="toast-header" style="color:white;background-color:#59b467">

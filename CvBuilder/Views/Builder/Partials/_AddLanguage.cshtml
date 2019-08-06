@@ -1,30 +1,24 @@
 ﻿@model CvBuilder.Models.LanguageSkills
 
+<div>
+    <h4>Languages</h4><hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-@using (Html.BeginForm("SaveLanguage", "Builder", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+    @{var lang = @Model.Items[0]; }
 
-    <div>
-        <h4>Languages</h4><hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        @{var lang = @Model.Items[0]; }
-
-        <div class="row">
-            <div class="form-group col-lg-6">
-                @Html.LabelFor(model => lang.Language, "Language", null)
-                @Html.DropDownListFor(model => Model.Items[0].Language, new SelectList(Model.AllLanguages), new { @class = "form-control" })
-            </div>
-            <div class="form-group col-lg-6">
-                @Html.LabelFor(model => lang.Level, "Level", null)
-                @Html.EditorFor(model => lang.Level, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
+    <div class="row">
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(model => lang.Language, "Language", null)
+            @Html.DropDownListFor(model => Model.Items[0].Language, new SelectList(Model.AllLanguages), new { @class = "form-control" })
         </div>
-
-        <div style="float:right;">
-            <input type="button" style="display:inline" value="Save" class="btn btn-success save-section" />
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(model => lang.Level, "Level", null)
+            @Html.EditorFor(model => lang.Level, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
-}
+
+    <div style="float:right;">
+        <input type="button" style="display:inline" value="Save" class="btn btn-success save-section" />
+    </div>
+</div>
 
