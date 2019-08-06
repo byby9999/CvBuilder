@@ -25,5 +25,10 @@ namespace CvBuilder.Models
             Certifications = new Certifications();
             OtherInfo = new OtherInfo();
         }
+
+        internal void AddWork(WorkExperience workItem)
+        {
+            this.Work.Items.Add(workItem);
+        }
     }
 }

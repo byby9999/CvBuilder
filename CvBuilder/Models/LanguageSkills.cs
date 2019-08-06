@@ -9,15 +9,23 @@ namespace CvBuilder.Models
     {
         public List<LanguageSkill> Items { get; set; }
         public List<string> AllLanguages { get; set; }
+        public List<string> AllLevels { get; set; }
 
         public LanguageSkills()
         {
             Items = new List<LanguageSkill>();
             Items.Add(new LanguageSkill());
+
             AllLanguages = new List<string>();
             AllLanguages.Add("English");
             AllLanguages.Add("French");
             AllLanguages.Add("German");
+
+            AllLevels = new List<string>();
+            AllLevels.Add("Beginner");
+            AllLevels.Add("Intermediate");
+            AllLevels.Add("Professional");
+            AllLevels.Add("Native/Billingual");
         }
     }
 

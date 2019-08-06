@@ -25,11 +25,9 @@ namespace CvBuilder.Models
         public string Title { get; set; }
         public string Company { get; set; }
         public string Details { get; set; }
-
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        
         public DateTime StartDate { get; set; }
-
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        
         public DateTime? EndDate { get; set; }
 
         public bool CurrentlyHere { get; set; }
