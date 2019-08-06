@@ -87,3 +87,5 @@ CvBuilder/.vs/config/applicationhost.config
 CvBuilder/.vs/config/applicationhost.config
 CvBuilder/bin/CvBuilder.dll
 *.dll
+CvBuilder/bin/CvBuilder.dll
+CvBuilder/bin/CvBuilder.dll.config
