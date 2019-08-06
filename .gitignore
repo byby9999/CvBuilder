@@ -113,3 +113,4 @@ CvBuilder/obj/Debug/CvBuilder.csproj.FileListAbsolute.txt
 CvBuilder/obj/Debug/CvBuilder.csproj.CoreCompileInputs.cache
 *.cache
 CvBuilder/obj/Debug/CvBuilder.csproj.CoreCompileInputs.cache
+*.dll
