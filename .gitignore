@@ -74,3 +74,9 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 *.config
+*.lock
+*.ide
+*.ide-shm
+*.ide-wal
+*.dll
+*.dll
