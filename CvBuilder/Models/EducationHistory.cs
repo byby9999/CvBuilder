@@ -7,12 +7,12 @@ namespace CvBuilder.Models
 {
     public class EducationHistory
     {
-        public List<EducationExperience> Items { get; set; }
+        public List<EducationExperience> EducationItems { get; set; }
 
         public EducationHistory()
         {
-            Items = new List<EducationExperience>();
-            Items.Add(new EducationExperience());
+            EducationItems = new List<EducationExperience>();
+            EducationItems.Add(new EducationExperience());
         }
     }
 

@@ -8,14 +8,14 @@ namespace CvBuilder.Models
 {
     public class WorkHistory
     {
-        public List<WorkExperience> Items { get; set; }
+        public List<WorkExperience> WorkItems { get; set; }
 
         public int OrderOfItems { get; set; } //0 desc by time, 1 asc by time
 
         public WorkHistory()
         {
-            Items = new List<WorkExperience>();
-            Items.Add(new WorkExperience());
+            WorkItems = new List<WorkExperience>();
+            WorkItems.Add(new WorkExperience());
             OrderOfItems = 0;
         }
     }

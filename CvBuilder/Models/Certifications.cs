@@ -7,12 +7,12 @@ namespace CvBuilder.Models
 {
     public class Certifications
     {
-        public List<CertificationOrTraining> Items { get; set; }
+        public List<CertificationOrTraining> CertificationItems { get; set; }
 
         public Certifications()
         {
-            Items = new List<CertificationOrTraining>();
-            Items.Add(new CertificationOrTraining());
+            CertificationItems = new List<CertificationOrTraining>();
+            CertificationItems.Add(new CertificationOrTraining());
         }
     }
 
