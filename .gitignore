@@ -116,3 +116,4 @@ CvBuilder/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.dll
 CvBuilder/bin/CvBuilder.dll
 *.pdb
+CvBuilder/.vs/config/applicationhost.config
