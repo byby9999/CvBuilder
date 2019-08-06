@@ -114,4 +114,4 @@ CvBuilder/obj/Debug/CvBuilder.csproj.CoreCompileInputs.cache
 *.cache
 CvBuilder/obj/Debug/CvBuilder.csproj.CoreCompileInputs.cache
 *.dll
-CvBuilder/bin/CvBuilder.dll.config
+CvBuilder/bin/*
