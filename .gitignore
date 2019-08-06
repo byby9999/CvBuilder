@@ -84,6 +84,7 @@ _[Ss]cripts
 *.pdb
 CvBuilder/obj/
 CvBuilder/bin/
+CvBuilder/.vs/
 CvBuilder/bin/CvBuilder.dll
 CvBuilder/bin/CvBuilder.pdb
 CvBuilder/obj/Debug/CvBuilder.csproj.CoreCompileInputs.cache
