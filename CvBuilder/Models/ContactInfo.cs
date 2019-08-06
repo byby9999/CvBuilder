@@ -21,6 +21,8 @@ namespace CvBuilder.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? Birthday { get; set; }
 
+        public string BirthdayString { get; set; }
+
         public ContactInfo()
         {
 
