@@ -98,3 +98,6 @@ CvBuilder/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.cache
 CvBuilder/obj/Debug/CvBuilder.dll
 CvBuilder/obj/Debug/CvBuilder.pdb
+CvBuilder/obj/Debug/CvBuilder.pdb
+*.pdb
+*.dll
