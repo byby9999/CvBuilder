@@ -40,7 +40,16 @@ namespace CvBuilder.Models
                     Phone = phone,
                     Website = website
                 };
-            
+            if(string.IsNullOrEmpty(fullName))
+                bindingContext.ModelState.AddModelError(bindingContext.ModelName, "Your full name is required");
+            if (string.IsNullOrEmpty(email))
+                bindingContext.ModelState.AddModelError(bindingContext.ModelName, "Your email is required");
+            if (string.IsNullOrEmpty(location))
+                bindingContext.ModelState.AddModelError(bindingContext.ModelName, "Your location is required");
+            if (string.IsNullOrEmpty(phone))
+                bindingContext.ModelState.AddModelError(bindingContext.ModelName, "Your phone number is required");
+
+
             WorkExperience workItem = new WorkExperience();
             workItem.Title = request.Form.Get("WorkItems[0].Title");
             workItem.Company = request.Form.Get("WorkItems[0].Company");
@@ -55,6 +64,7 @@ namespace CvBuilder.Models
             if(string.IsNullOrEmpty(endDateString) == false)
                 workItem.EndDate = DateTime.ParseExact(endDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
 
+            
             masterModel.AddWork(workItem);
 
             return masterModel;

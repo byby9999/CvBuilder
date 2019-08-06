@@ -1,4 +1,4 @@
-﻿@model CvBuilder.Models.CvMasterModel 
+﻿@model CvBuilder.Models.CvMasterModel
 @{
     ViewBag.Title = "Edit my CV online";
 }
@@ -52,6 +52,15 @@
 @using (Html.BeginForm("SaveData", "Builder", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
+    if (ViewData.ModelState["masterModel"] != null && ViewData.ModelState["masterModel"].Errors.Count > 0)
+    {
+        <h1>TEST</h1>
+        <div class="alert alert-danger">
+            <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            @Html.ValidationSummary(false, "Errors: ")
+        </div>
+    }
+
 
     <button type="button" class="collapsible">My contact info</button>
     <div class="content">

@@ -73,11 +73,12 @@ namespace CvBuilder.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                return RedirectToAction("Editor");
             }
-
-            MasterModel = masterModel;
-            return RedirectToAction("Editor");
+            else
+            {
+                return View("Editor", masterModel);
+            }
         }
     }
 }
