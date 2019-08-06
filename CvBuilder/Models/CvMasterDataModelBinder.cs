@@ -42,18 +42,18 @@ namespace CvBuilder.Models
                 };
             
             WorkExperience workItem = new WorkExperience();
-            workItem.Title = request.Form.Get("Items[0].Title");
-            workItem.Company = request.Form.Get("Items[0].Company");
-            workItem.Details = request.Form.Get("Items[0].Details");
-            workItem.Location = request.Form.Get("Items[0].Location");
+            workItem.Title = request.Form.Get("WorkItems[0].Title");
+            workItem.Company = request.Form.Get("WorkItems[0].Company");
+            workItem.Details = request.Form.Get("WorkItems[0].Details");
+            workItem.Location = request.Form.Get("WorkItems[0].Location");
             workItem.CurrentlyHere = Convert.ToBoolean(request.Form.Get("Items[0].CurrentlyHere"));
 
-            string startDateString = request.Form.Get("Items[0].StartDate");
-            string endDateString = request.Form.Get("Items[0].EndDate");
+            string startDateString = request.Form.Get("WorkItems[0].StartDate");
+            string endDateString = request.Form.Get("WorkItems[0].EndDate");
 
-            workItem.StartDate = DateTime.ParseExact(startDateString, "dd-mm-yyyy", CultureInfo.InvariantCulture);
+            workItem.StartDate = DateTime.ParseExact(startDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             if(string.IsNullOrEmpty(endDateString) == false)
-                workItem.EndDate = DateTime.ParseExact(endDateString, "dd-mm-yyyy", CultureInfo.InvariantCulture);
+                workItem.EndDate = DateTime.ParseExact(endDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
 
             masterModel.AddWork(workItem);
 
