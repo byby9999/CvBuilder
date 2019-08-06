@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Models\Certifications.cs" />
     <Compile Include="Models\ContactInfo.cs" />
+    <Compile Include="Models\CvMasterModel.cs" />
     <Compile Include="Models\EducationHistory.cs" />
     <Compile Include="Models\LanguageSkills.cs" />
     <Compile Include="Models\OtherInfo.cs" />

@@ -18,13 +18,15 @@ namespace CvBuilder.Controllers
         // GET: Builder/Details/5
         public ActionResult Editor()
         {
-            return View();
+            CvMasterModel model = new CvMasterModel();
+            return View(model);
         }
 
-        public ActionResult FormAddContactInfo()
+        public ActionResult FormAddContactInfo(ContactInfo passed)
         {
-            ContactInfo model = new ContactInfo();
-            return PartialView("Partials/_AddContactInfo", model);
+            if(passed == null)
+                passed = new ContactInfo();
+            return PartialView("Partials/_AddContactInfo", passed);
         }
 
         public ActionResult FormAddWork()
@@ -61,6 +63,13 @@ namespace CvBuilder.Controllers
         {
             OtherInfo model = new OtherInfo();
             return PartialView("Partials/_AddOtherInfo", model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveData()
+        {
+            throw new NotImplementedException();
         }
     }
 }
