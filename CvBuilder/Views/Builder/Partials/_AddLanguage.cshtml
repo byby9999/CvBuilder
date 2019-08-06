@@ -4,18 +4,18 @@
     <h4>Languages</h4><hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @for (int i = 0; i < Model.Items.Count; i++)
+    @for (int i = 0; i < Model.LanguageItems.Count; i++)
     {
         hide = (i == 0) ? "" : "display:none";
         <div class="lang-item" style="@hide">
             <div class="row">
                 <div class="form-group col-lg-6">
-                    @Html.LabelFor(model => Model.Items[i].Language, "Language", null)
-                    @Html.DropDownListFor(model => Model.Items[i].Language, new SelectList(Model.AllLanguages), new { @class = "form-control" })
+                    @Html.LabelFor(model => Model.LanguageItems[i].Language, "Language", null)
+                    @Html.DropDownListFor(model => Model.LanguageItems[i].Language, new SelectList(Model.AllLanguages), new { @class = "form-control" })
                 </div>
                 <div class="form-group col-lg-6">
-                    @Html.LabelFor(model => Model.Items[i].Level, "Level", null)
-                    @Html.DropDownListFor(model => Model.Items[i].Level, new SelectList(Model.AllLevels), new { @class = "form-control" })
+                    @Html.LabelFor(model => Model.LanguageItems[i].Level, "Level", null)
+                    @Html.DropDownListFor(model => Model.LanguageItems[i].Level, new SelectList(Model.AllLevels), new { @class = "form-control" })
                 </div>
             </div>
 
