@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Edit my CV online";
 }
-
+<link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
 <style>
     .collapsible {
         background-color: #7085ba;
@@ -103,6 +103,8 @@
 
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
 
 <script>
     var coll = document.getElementsByClassName("collapsible");
@@ -137,4 +139,13 @@
 
         });
     }
+
+    $('.datepicker').datepicker({
+        autoclose: true,
+        format: 'dd-mm-yyyy',
+        leftArrow: '&laquo;',
+        rightArrow: '&raquo;',//le pot inlocui cu alte icons eg <i class="fa fa-long-arrow-left"></i>,
+        todayHighlight: true
+    });
+
 </script>
