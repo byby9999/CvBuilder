@@ -1,24 +1,28 @@
 ﻿@model CvBuilder.Models.LanguageSkills
-
+@{ string hide = ""; }
 <div>
     <h4>Languages</h4><hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @{var lang = @Model.Items[0]; }
+    @for (int i = 0; i < Model.Items.Count; i++)
+    {
+        hide = (i == 0) ? "" : "display:none";
+        <div class="lang-item" style="@hide">
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    @Html.LabelFor(model => Model.Items[i].Language, "Language", null)
+                    @Html.DropDownListFor(model => Model.Items[i].Language, new SelectList(Model.AllLanguages), new { @class = "form-control" })
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.LabelFor(model => Model.Items[i].Level, "Level", null)
+                    @Html.DropDownListFor(model => Model.Items[i].Level, new SelectList(Model.AllLevels), new { @class = "form-control" })
+                </div>
+            </div>
 
-    <div class="row">
-        <div class="form-group col-lg-6">
-            @Html.LabelFor(model => lang.Language, "Language", null)
-            @Html.DropDownListFor(model => Model.Items[0].Language, new SelectList(Model.AllLanguages), new { @class = "form-control" })
+            <div style="float:right;">
+                <input type="button" style="display:inline" value="Save" class="btn btn-success save-section" />
+            </div>
         </div>
-        <div class="form-group col-lg-6">
-            @Html.LabelFor(model => lang.Level, "Level", null)
-            @Html.EditorFor(model => lang.Level, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-
-    <div style="float:right;">
-        <input type="button" style="display:inline" value="Save" class="btn btn-success save-section" />
-    </div>
+    }
 </div>
 

@@ -1,46 +1,50 @@
 ﻿@model CvBuilder.Models.WorkHistory
-
-<div class="work-item">
-    <h4>Professional Experience</h4><hr />
+@{ string hide = ""; }
+<div>
+    <h4>Work Experience</h4><hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @{var workItem = @Model.Items[0]; }
-
-    <div class="row">
-        <div class="form-group col-lg-12">
-            @Html.LabelFor(model => workItem.Title, "Job Title", null)
-            @Html.EditorFor(model => workItem.Title, new { htmlAttributes = new { @class = "form-control" } })
+    @for (int i = 0; i < Model.Items.Count; i++)
+    {
+        hide = (i == 0) ? "" : "display:none";
+        <div class="work-item" style="@hide">
+            <div class="row">
+                <div class="form-group col-lg-12">
+                    @Html.LabelFor(model => Model.Items[i].Title, "Job Title", null)
+                    @Html.EditorFor(model => Model.Items[i].Title, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    @Html.LabelFor(model => Model.Items[i].Company, "Company", null)
+                    @Html.EditorFor(model => Model.Items[i].Company, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.LabelFor(model => Model.Items[i].Location, "Location", null)
+                    @Html.EditorFor(model => Model.Items[i].Location, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    @Html.LabelFor(model => Model.Items[i].StartDate, "Start Date", null)
+                    @Html.EditorFor(model => Model.Items[i].StartDate, new { htmlAttributes = new { @class = "form-control datepicker", autocomplete = "off" } })
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.LabelFor(model => Model.Items[i].EndDate, "End Date", null)
+                    @Html.EditorFor(model => Model.Items[i].EndDate, new { htmlAttributes = new { @class = "form-control datepicker", autocomplete = "off" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-12">
+                    @Html.LabelFor(model => Model.Items[i].Details, "Details", null)
+                    @Html.TextAreaFor(model => Model.Items[i].Details, new { @class = "form-control" })
+                </div>
+            </div>
+            <div style="float:right;">
+                <p style="display:inline"><i><a href="#">Add another job</a></i></p>
+                <p style="display:inline"> or </p>
+                <input type="button" style="display:inline" value="Save" class="btn btn-success save-section" />
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-lg-6">
-            @Html.LabelFor(model => workItem.Company, "Company", null)
-            @Html.EditorFor(model => workItem.Company, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group col-lg-6">
-            @Html.LabelFor(model => workItem.Location, "Location", null)
-            @Html.EditorFor(model => workItem.Location, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-lg-6">
-            @Html.LabelFor(model => workItem.StartDate, "Start Date", null)
-            @Html.EditorFor(model => workItem.StartDate, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group col-lg-6">
-            @Html.LabelFor(model => workItem.EndDate, "End Date", null)
-            @Html.EditorFor(model => workItem.EndDate, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-lg-12">
-            @Html.LabelFor(model => workItem.Details, "Details", null)
-            @Html.TextAreaFor(model => workItem.Details, new { @class = "form-control" })
-        </div>
-    </div>
-    <div style="float:right;">
-        <p style="display:inline"><i><a href="#">Add another job</a></i></p>
-        <p style="display:inline"> or </p>
-        <input type="button" style="display:inline" value="Save" class="btn btn-success save-section" />
-    </div>
+    }
 </div>
