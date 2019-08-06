@@ -89,3 +89,13 @@ CvBuilder/bin/CvBuilder.dll
 *.dll
 CvBuilder/bin/CvBuilder.dll
 CvBuilder/bin/CvBuilder.dll.config
+CvBuilder/obj/Debug/CvBuilder.pdb
+CvBuilder/packages.config
+CvBuilder/packages.config
+CvBuilder/packages.config
+CvBuilder/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+CvBuilder/obj/Debug/CvBuilder.pdb
+CvBuilder/bin/CvBuilder.dll.config
+*.dll
+CvBuilder/.vs/config/applicationhost.config
+CvBuilder/.vs/config/applicationhost.config
