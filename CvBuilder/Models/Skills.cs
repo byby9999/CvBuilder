@@ -12,7 +12,8 @@ namespace CvBuilder.Models
         public Skills()
         {
             SkillItems = new List<Skill>();
-            SkillItems.Add(new Skill());
+            for (int i = 0; i < 30; i++)
+                SkillItems.Add(new Skill());
         }
     }
 

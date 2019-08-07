@@ -12,7 +12,8 @@ namespace CvBuilder.Models
         public Certifications()
         {
             CertificationItems = new List<CertificationOrTraining>();
-            CertificationItems.Add(new CertificationOrTraining());
+            for (int i = 0; i < 10; i++)
+                CertificationItems.Add(new CertificationOrTraining());
         }
     }
 

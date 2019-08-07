@@ -12,7 +12,8 @@ namespace CvBuilder.Models
         public EducationHistory()
         {
             EducationItems = new List<EducationExperience>();
-            EducationItems.Add(new EducationExperience());
+            for (int i = 0; i < 10; i++)
+                EducationItems.Add(new EducationExperience());
         }
     }
 

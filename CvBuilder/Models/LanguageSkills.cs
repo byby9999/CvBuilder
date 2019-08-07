@@ -14,7 +14,8 @@ namespace CvBuilder.Models
         public LanguageSkills()
         {
             LanguageItems = new List<LanguageSkill>();
-            LanguageItems.Add(new LanguageSkill());
+            for (int i = 0; i < 10; i++)
+                LanguageItems.Add(new LanguageSkill());
 
             AllLanguages = new List<string>();
             AllLanguages.Add("English");

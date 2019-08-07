@@ -12,7 +12,8 @@ namespace CvBuilder.Models
         public OtherInfo()
         {
             OtherInfoItems = new List<string>();
-            OtherInfoItems.Add("");
+            for (int i = 0; i < 10; i++)
+                OtherInfoItems.Add("");
         }
     }
 }
