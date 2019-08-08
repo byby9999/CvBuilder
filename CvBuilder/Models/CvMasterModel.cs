@@ -28,7 +28,7 @@ namespace CvBuilder.Models
 
         internal void AddWork(WorkExperience workItem)
         {
-            this.Work.Items.Add(workItem);
+            this.Work.WorkItems.Add(workItem);
         }
     }
 }

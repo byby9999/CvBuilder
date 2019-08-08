@@ -40,23 +40,57 @@ namespace CvBuilder.Models
                     Phone = phone,
                     Website = website
                 };
+
+            #region Contact Info Validation
+            if(string.IsNullOrEmpty(fullName))
+                bindingContext.ModelState.AddModelError(bindingContext.ModelName, "Your full name is required");
+            if (string.IsNullOrEmpty(email))
+                bindingContext.ModelState.AddModelError(bindingContext.ModelName, "Your email is required");
+            if (string.IsNullOrEmpty(location))
+                bindingContext.ModelState.AddModelError(bindingContext.ModelName, "Your location is required");
+            if (string.IsNullOrEmpty(phone))
+                bindingContext.ModelState.AddModelError(bindingContext.ModelName, "Your phone number is required");
+            #endregion
+
+            WorkExperience workItem;
+            for (int i = 0; i < 10; i++)
+            {
+                try
+                {
+                    workItem = new WorkExperience();
+                    workItem.Title = request.Form.Get($"WorkItems[{i}].Title");
+                    workItem.Company = request.Form.Get($"WorkItems[{i}].Company");
+                    workItem.Details = request.Form.Get($"WorkItems[{i}].Details");
+                    workItem.Location = request.Form.Get($"WorkItems[{i}].Location");
+                    workItem.CurrentlyHere = Convert.ToBoolean(
+                        request.Form.Get($"Items[{i}].CurrentlyHere"));
+
+                    string startDateString = request.Form.Get($"WorkItems[{i}].StartDate");
+                    string endDateString = request.Form.Get($"WorkItems[{i}].EndDate");
+
+                    if (string.IsNullOrEmpty(startDateString) == false)
+                        workItem.StartDate = DateTime.ParseExact(startDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    if (string.IsNullOrEmpty(endDateString) == false)
+                        workItem.EndDate = DateTime.ParseExact(endDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+
+                    if (workItem.IsEmpty())
+                        continue;
+                    else
+                    {
+                        masterModel.Work.WorkItems[i] = workItem;
+
+                        if (string.IsNullOrEmpty(workItem.Title))
+                            bindingContext.ModelState.AddModelError(bindingContext.ModelName, $"Job nr. {i+1} - " + "Job title is required");
+                        if (string.IsNullOrEmpty(workItem.Company))
+                            bindingContext.ModelState.AddModelError(bindingContext.ModelName, $"Job nr. {i + 1} - " + "Company is required");
+                        if (string.IsNullOrEmpty(workItem.Details))
+                            bindingContext.ModelState.AddModelError(bindingContext.ModelName, $"Job nr. {i + 1} - " + "Details are required, minimum 20 characters");
+                    }
+                }
+                catch { }
+                
+            }
             
-            WorkExperience workItem = new WorkExperience();
-            workItem.Title = request.Form.Get("Items[0].Title");
-            workItem.Company = request.Form.Get("Items[0].Company");
-            workItem.Details = request.Form.Get("Items[0].Details");
-            workItem.Location = request.Form.Get("Items[0].Location");
-            workItem.CurrentlyHere = Convert.ToBoolean(request.Form.Get("Items[0].CurrentlyHere"));
-
-            string startDateString = request.Form.Get("Items[0].StartDate");
-            string endDateString = request.Form.Get("Items[0].EndDate");
-
-            workItem.StartDate = DateTime.ParseExact(startDateString, "dd-mm-yyyy", CultureInfo.InvariantCulture);
-            if(string.IsNullOrEmpty(endDateString) == false)
-                workItem.EndDate = DateTime.ParseExact(endDateString, "dd-mm-yyyy", CultureInfo.InvariantCulture);
-
-            masterModel.AddWork(workItem);
-
             return masterModel;
         }
     }

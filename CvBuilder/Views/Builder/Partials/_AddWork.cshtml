@@ -1,43 +1,43 @@
 ﻿@model CvBuilder.Models.WorkHistory
 @{ string hide = ""; }
 <div>
-    <h4>Work Experience</h4><hr />
+    <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @for (int i = 0; i < Model.Items.Count; i++)
+    @for (int i = 0; i < Model.WorkItems.Count; i++)
     {
         hide = (i == 0) ? "" : "display:none";
         <div class="work-item" style="@hide">
             <div class="row">
                 <div class="form-group col-lg-12">
-                    @Html.LabelFor(model => Model.Items[i].Title, "Job Title", null)
-                    @Html.EditorFor(model => Model.Items[i].Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.LabelFor(model => Model.WorkItems[i].Title, "Job Title", null)
+                    @Html.EditorFor(model => Model.WorkItems[i].Title, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-6">
-                    @Html.LabelFor(model => Model.Items[i].Company, "Company", null)
-                    @Html.EditorFor(model => Model.Items[i].Company, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.LabelFor(model => Model.WorkItems[i].Company, "Company", null)
+                    @Html.EditorFor(model => Model.WorkItems[i].Company, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
                 <div class="form-group col-lg-6">
-                    @Html.LabelFor(model => Model.Items[i].Location, "Location", null)
-                    @Html.EditorFor(model => Model.Items[i].Location, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.LabelFor(model => Model.WorkItems[i].Location, "Location", null)
+                    @Html.EditorFor(model => Model.WorkItems[i].Location, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-6">
-                    @Html.LabelFor(model => Model.Items[i].StartDate, "Start Date", null)
-                    @Html.EditorFor(model => Model.Items[i].StartDate, new { htmlAttributes = new { @class = "form-control datepicker", autocomplete = "off" } })
+                    @Html.LabelFor(model => Model.WorkItems[i].StartDate, "Start Date", null)
+                    @Html.EditorFor(model => Model.WorkItems[i].StartDate, new { htmlAttributes = new { @class = "form-control datepicker", autocomplete = "off" } })
                 </div>
                 <div class="form-group col-lg-6">
-                    @Html.LabelFor(model => Model.Items[i].EndDate, "End Date", null)
-                    @Html.EditorFor(model => Model.Items[i].EndDate, new { htmlAttributes = new { @class = "form-control datepicker", autocomplete = "off" } })
+                    @Html.LabelFor(model => Model.WorkItems[i].EndDate, "End Date", null)
+                    @Html.EditorFor(model => Model.WorkItems[i].EndDate, new { htmlAttributes = new { @class = "form-control datepicker", autocomplete = "off" } })
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-12">
-                    @Html.LabelFor(model => Model.Items[i].Details, "Details", null)
-                    @Html.TextAreaFor(model => Model.Items[i].Details, new { @class = "form-control" })
+                    @Html.LabelFor(model => Model.WorkItems[i].Details, "Details", null)
+                    @Html.TextAreaFor(model => Model.WorkItems[i].Details, new { @class = "form-control" })
                 </div>
             </div>
             <div style="float:right;">

@@ -58,8 +58,8 @@ TestResults/
 ehthumbs.db
 Icon?
 Thumbs.db
-[Bb]in
-[Oo]bj
+bin
+obj
 [Tt]est[Rr]esults
 *.suo
 *.user
@@ -82,6 +82,9 @@ _[Ss]cripts
 *.dll
 *.cache
 *.pdb
+CvBuilder/obj/
+CvBuilder/bin/
+CvBuilder/.vs/
 CvBuilder/bin/CvBuilder.dll
 CvBuilder/bin/CvBuilder.pdb
 CvBuilder/obj/Debug/CvBuilder.csproj.CoreCompileInputs.cache
@@ -110,3 +113,8 @@ CvBuilder/obj/Debug/CvBuilder.csprojAssemblyReference.cache
 CvBuilder/obj/Debug/CvBuilder.dll
 CvBuilder/obj/Debug/CvBuilder.pdb
 CvBuilder/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.dll
+*.dll
+CvBuilder/bin/CvBuilder.dll
+*.pdb
+CvBuilder/.vs/config/applicationhost.config

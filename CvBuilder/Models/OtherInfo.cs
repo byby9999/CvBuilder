@@ -7,12 +7,13 @@ namespace CvBuilder.Models
 {
     public class OtherInfo
     {
-        public List<string> Items { get; set; }
+        public List<string> OtherInfoItems { get; set; }
 
         public OtherInfo()
         {
-            Items = new List<string>();
-            Items.Add("");
+            OtherInfoItems = new List<string>();
+            for (int i = 0; i < 10; i++)
+                OtherInfoItems.Add("");
         }
     }
 }

@@ -7,14 +7,15 @@ namespace CvBuilder.Models
 {
     public class LanguageSkills
     {
-        public List<LanguageSkill> Items { get; set; }
+        public List<LanguageSkill> LanguageItems { get; set; }
         public List<string> AllLanguages { get; set; }
         public List<string> AllLevels { get; set; }
 
         public LanguageSkills()
         {
-            Items = new List<LanguageSkill>();
-            Items.Add(new LanguageSkill());
+            LanguageItems = new List<LanguageSkill>();
+            for (int i = 0; i < 10; i++)
+                LanguageItems.Add(new LanguageSkill());
 
             AllLanguages = new List<string>();
             AllLanguages.Add("English");

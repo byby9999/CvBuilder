@@ -1,15 +1,15 @@
 ﻿@model CvBuilder.Models.Skills
 
 <div>
-    <h4>Skills</h4><hr />
+    <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @{var skill = @Model.Items[0]; }
+    @{var skill = @Model.SkillItems[0]; }
 
     <div class="row">
         <div class="form-group col-lg-6">
             @Html.LabelFor(model => skill.Name, "Name", null)
-            @Html.EditorFor(model => Model.Items[0].Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => Model.SkillItems[0].Name, new { htmlAttributes = new { @class = "form-control" } })
         </div>
         <div class="form-group col-lg-6">
             @Html.LabelFor(model => skill.Rating, "Self-rating (optional)", null)

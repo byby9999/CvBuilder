@@ -7,12 +7,13 @@ namespace CvBuilder.Models
 {
     public class Skills
     {
-        public List<Skill> Items { get; set; }
+        public List<Skill> SkillItems { get; set; }
 
         public Skills()
         {
-            Items = new List<Skill>();
-            Items.Add(new Skill());
+            SkillItems = new List<Skill>();
+            for (int i = 0; i < 30; i++)
+                SkillItems.Add(new Skill());
         }
     }
 
