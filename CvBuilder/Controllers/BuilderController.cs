@@ -9,7 +9,7 @@ namespace CvBuilder.Controllers
 {
     public class BuilderController : Controller
     {
-        private CvMasterModel MasterModel { get; set; }
+        private static CvMasterModel MasterModel { get; set; }
         // GET: Builder
         public ActionResult Index()
         {
@@ -21,50 +21,78 @@ namespace CvBuilder.Controllers
         {
             if (MasterModel == null)
                 MasterModel = new CvMasterModel();
+
             return View(MasterModel);
         }
 
-        public ActionResult FormAddContactInfo(ContactInfo passed)
+        public ActionResult FormAddContactInfo(ContactInfo contactInfo)
         {
-            if(passed == null)
-                passed = new ContactInfo();
-            return PartialView("Partials/_AddContactInfo", passed);
+            if(contactInfo == null)
+                contactInfo = new ContactInfo();
+
+            MasterModel.ContactInfo = contactInfo;
+
+            return PartialView("Partials/_AddContactInfo", contactInfo);
         }
 
-        public ActionResult FormAddWork()
+        public ActionResult FormAddWork(WorkHistory workHistory)
         {
-            WorkHistory model = new WorkHistory();
-            return PartialView("Partials/_AddWork", model);
+            if (workHistory == null)
+                workHistory = new WorkHistory();
+
+            MasterModel.Work = workHistory;
+
+            return PartialView("Partials/_AddWork", workHistory);
         }
 
-        public ActionResult FormAddEducation()
+        public ActionResult FormAddEducation(EducationHistory educationHistory)
         {
-            EducationHistory model = new EducationHistory();
-            return PartialView("Partials/_AddEducation", model);
+            if (educationHistory == null)
+                educationHistory = new EducationHistory();
+
+            MasterModel.Education = educationHistory;
+
+            return PartialView("Partials/_AddEducation", educationHistory);
         }
 
-        public ActionResult FormAddLanguages()
+        public ActionResult FormAddLanguages(LanguageSkills languageSkills)
         {
-            LanguageSkills model = new LanguageSkills();
-            return PartialView("Partials/_AddLanguage", model);
+            if (languageSkills == null)
+                languageSkills = new LanguageSkills();
+
+            MasterModel.Languages = languageSkills;
+
+            return PartialView("Partials/_AddLanguage", languageSkills);
         }
 
-        public ActionResult FormAddSkills()
+        public ActionResult FormAddSkills(Skills skills)
         {
-            Skills model = new Skills();
-            return PartialView("Partials/_AddSkills", model);
+            if (skills == null)
+                skills = new Skills();
+
+            MasterModel.Skills = skills;
+
+            return PartialView("Partials/_AddSkills", skills);
         }
 
-        public ActionResult FormAddCertifications()
+        public ActionResult FormAddCertifications(Certifications certifications)
         {
-            Certifications model = new Certifications();
-            return PartialView("Partials/_AddCertifications", model);
+            if (certifications == null)
+                certifications = new Certifications();
+
+            MasterModel.Certifications = certifications;
+
+            return PartialView("Partials/_AddCertifications", certifications);
         }
 
-        public ActionResult FormAddOtherInfo()
+        public ActionResult FormAddOtherInfo(OtherInfo otherInfo)
         {
-            OtherInfo model = new OtherInfo();
-            return PartialView("Partials/_AddOtherInfo", model);
+            if (otherInfo == null)
+                otherInfo = new OtherInfo();
+
+            MasterModel.OtherInfo = otherInfo;
+
+            return PartialView("Partials/_AddOtherInfo", otherInfo);
         }
 
         [HttpPost]
