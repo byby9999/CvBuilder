@@ -19,10 +19,10 @@ namespace CvBuilder.Models
             DateTime? birthDate = null;
             var fullName = request.Form.Get("FullName");
             var email = request.Form.Get("Email");
-            var bday = request.Form.Get("Birthday");
+            var bday = request.Form.Get("BirthdayString");
 
             if(string.IsNullOrEmpty(bday) == false)
-                birthDate = Convert.ToDateTime(bday);
+                birthDate = DateTime.ParseExact(bday, "dd-mm-yyyy", CultureInfo.InvariantCulture);
             var liprofile = request.Form.Get("LinkedinProfile");
             var location = request.Form.Get("Location");
             var phone = request.Form.Get("Phone");
