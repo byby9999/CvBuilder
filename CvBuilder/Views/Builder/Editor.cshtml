@@ -3,6 +3,15 @@
     ViewBag.Title = "Edit my CV online";
 }
 <link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/mab-jquery-taginput.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/typeahead.bundle.js"></script>
+<script src="~/Scripts/mab-jquery-taginput.js"></script>
 <style>
     .collapsible {
         background-color: #7085ba;
@@ -54,10 +63,9 @@
     @Html.AntiForgeryToken()
     if (ViewData.ModelState["masterModel"] != null && ViewData.ModelState["masterModel"].Errors.Count > 0)
     {
-        <h1>TEST</h1>
         <div class="alert alert-danger">
             <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            @Html.ValidationSummary(false, "Errors: ")
+            @Html.ValidationSummary(false, "We encountered some problems: ")
         </div>
     }
 
@@ -67,7 +75,7 @@
         @Html.Action("FormAddContactInfo", "Builder", Model.ContactInfo)
     </div>
     <button type="button" class="collapsible">Professional Experience</button>
-    <div class="content">
+    <div class="content" style="height:auto">
         @Html.Action("FormAddWork", "Builder", Model.Work)
     </div>
     <button type="button" class="collapsible">Educational History</button>
@@ -94,6 +102,8 @@
     <div class="col-lg-12 col-md-12 text-center">
         <button type="submit" class="btn btn-lg btn-success">Generate my CV</button>
     </div>
+
+    <input type="text" class="form-control tag-input" name="tags0" id="tags0" value="">
 }
 <div aria-live="polite" aria-atomic="true" style="position:absolute; top:10px; right:10px; min-width: 300px; z-index: 999;">
     <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="true" data-delay="1000" style="position: absolute; top: 0; right: 0;">
@@ -109,11 +119,6 @@
         </div>
     </div>
 </div>
-
-<script src="~/Scripts/jquery-3.3.1.js"></script>
-<script src="~/Scripts/bootstrap.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-<script src="~/Scripts/bootstrap-datepicker.js"></script>
 
 <script>
     var coll = document.getElementsByClassName("collapsible");
@@ -143,7 +148,7 @@
             openTab.trigger("click");
             //TODO: toggle only if form was validated ok
             openTab.addClass("completed");
-            
+
             $("#toastTitle").text("Success");
             $("#toastMessage").text(openTab.text() + " saved");
 
@@ -152,12 +157,55 @@
         });
     }
 
-    $('.datepicker').datepicker({
-        autoclose: true,
-        format: 'dd-mm-yyyy',
-        leftArrow: '&laquo;',
-        rightArrow: '&raquo;',//le pot inlocui cu alte icons eg <i class="fa fa-long-arrow-left"></i>,
-        todayHighlight: true
+    //$('.datepicker').datepicker({
+    //    autoclose: true,
+    //    format: 'dd-mm-yyyy',
+    //    leftArrow: '&laquo;',
+    //    rightArrow: '&raquo;',//le pot inlocui cu alte icons eg <i class="fa fa-long-arrow-left"></i>,
+    //    todayHighlight: true
+    //});
+
+
+    $(document).ready(function () {
+
+        var tags = new Bloodhound({
+            datumTokenizer: function (d) { return Bloodhound.tokenizers.whitespace(d.value); },
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: [
+                { tag: 'dog', value: 'aaa' },
+                { tag: 'cat', value: 'bbb' },
+                { tag: 'fish', value: 'ccc' },
+                { tag: 'catfish', value: 'ddd' },
+                { tag: 'dogfish', value: 'eee' }
+            ]
+        });
+
+        tags.initialize();
+
+        // Write callback data to the screen when tags are added or removed in demo inputs
+        var logCallbackDataToConsole = function (added, removed) {
+            console.log('Tag Data: ' + (this.val() || null) + ', Added: ' + added + ', Removed: ' + removed + '\n');
+        };
+
+        // Create typeahead-enabled tag inputs
+        $('.tag-input').tagInput({
+            allowDuplicates: false,
+            typeahead: true,
+            typeaheadOptions: {
+                highlight: true
+            },
+            typeaheadDatasetOptions: {
+                display: function (d) { return d.value; },
+                source: tags.ttAdapter()
+            },
+            onTagDataChanged: logCallbackDataToConsole
+        });
+
+        //// Create basic tag inputs with no typeahead
+        //$('.tag-input-basic').tagInput({
+        //    onTagDataChanged: logCallbackDataToConsole
+        //});
+
     });
 
 </script>

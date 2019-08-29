@@ -3,5 +3,91 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<style>
+    .tag-item {
+        margin-left: 5px;
+    }
+
+    .remove-tag {
+        margin-left: 5px;
+    }
+
+        .remove-tag:hover {
+            color: #dc3545;
+        }
+</style>
 
 <p>Use this area to provide additional information.</p>
+@Html.Hidden("suggestions", Url.Action("GetOrgs", "Home"), new { @id = "getSuggestionsUrl"}))
+<div class="form-group">
+    <label>Entered values:</label>
+    <div id="displayItems">
+
+    </div>
+    <label for="mytags">Tags input</label>
+    <input class="form-control input-lg" id="mytags" type="text">
+</div>
+<h3>Aici sunt sugestiile</h3>
+<div class="result">
+
+</div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+<script type="text/javascript">
+
+    $("#mytags").keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            var typedUntilSeparator = $("#mytags").val();
+            $("#mytags").val("");
+
+            $("#displayItems").append(
+                "<div class='badge badge-pill badge-primary tag-item'>" +
+                typedUntilSeparator +
+                "<i class='fas fa-times-circle remove-tag' onclick='removeTag()'></i>" +
+                "</div>");
+
+            $("#mytags").focus();
+        }
+    });
+
+    GetSuggestions();
+    // ["Asp", "BASIC", "C++", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby"];
+    $("#mytags").autocomplete({
+        source: suggestions,
+        select: chooseAndAddTag
+    });
+
+    function chooseAndAddTag() {
+
+        var typedUntilSeparator = $("#mytags").val();
+        
+        $("#displayItems").append(
+            "<div class='badge badge-pill badge-primary tag-item'>" +
+            typedUntilSeparator +
+            "<i class='fas fa-times-circle remove-tag' onclick='removeTag()'></i>" +
+            "</div>");
+        $("#mytags").val(""); 
+        $("#mytags").focus();
+        return false;
+    }
+
+    function removeTag() {
+        $(".remove-tag").each(function () {
+            $(this).on("click", function () {
+                var tag = $(this).parent();
+                tag.remove();
+            });
+        });
+    }
+
+    function GetSuggestions() {
+        $.get($("#getSuggestionsUrl").val(), function (data) {
+            $(".result").text(data);
+            alert("Load was performed.");
+        });
+    }
+
+</script>

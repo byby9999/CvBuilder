@@ -26,5 +26,18 @@ namespace CvBuilder.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult GetOrgs()
+        {
+            var items = new List<string>();
+
+            items.Add("new yorker");
+            items.Add("fox news");
+            items.Add("london UK");
+            items.Add("ceva RO");
+
+            return Json(items);
+        }
     }
 }

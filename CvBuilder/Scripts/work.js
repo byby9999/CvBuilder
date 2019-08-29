@@ -5,9 +5,14 @@
         
         firstWorkItemHidden.show();
 
-        var contentOfCurrentTab = firstWorkItemHidden.closest(".content");
-        contentOfCurrentTab.css('max-height', '');
-        contentOfCurrentTab.css('height', 'auto');
+        //var contentOfCurrentTab = firstWorkItemHidden.closest(".content");
+        //contentOfCurrentTab.css('max-height', '');
+        //contentOfCurrentTab.css('height', 'auto');
+        var content = firstWorkItemHidden.closest(".content");
+
+        if (content.height() > 0) {
+            content.height("auto");
+        }
     }
     
     var visibleWorkItems = $(".work-item:visible");

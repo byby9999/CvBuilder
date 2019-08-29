@@ -1,7 +1,15 @@
 ﻿@{
     ViewBag.Title = "CV Builder";
 }
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/typeahead.bundle.js"></script>
 
+@*need this for glyphicons -- ?*@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link href="~/Content/mab-jquery-taginput.css" rel="stylesheet" />
+<script src="~/Scripts/mab-jquery-taginput.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <div class="vertical-center">
         <div class="col-lg-4 col-md-4 text-center"></div>
 
@@ -12,6 +20,45 @@
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 text-center"></div>
+        <div class="col-lg-4 col-md-4 text-center">
+            <label>HERE:</label>
+            <input type="text" class="tag-input form-control" />
+        </div>
         
     </div>
+
+<script type="text/javascript">
+    var tags = new Bloodhound({
+       
+    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tag); },  
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    local: [
+        { tag: 'dog' },
+        { tag: 'cat' },
+        { tag: 'fish' },
+        { tag: 'catfish' },
+        { tag: 'dogfish' }
+    ]
+});
+    tags.initialize();
+    
+    $('.tag-input').tagInput({
+   
+  // tags separator
+  tagDataSeparator: '|',
+  // allow duplicate tags
+  allowDuplicates: false,
+  // enable typehead.js
+  typeahead: true,
+  // tyhehead.js options
+  typeaheadOptions: {
+      highlight: true
+  },
+  // typehead dataset options
+  typeaheadDatasetOptions: {
+    displayKey: 'tag',
+    source: tags.ttAdapter()
+  }
+});
+
+</script>

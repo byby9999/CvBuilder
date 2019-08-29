@@ -7,7 +7,7 @@
     {
         hide = (i == 0) ? "" : "display:none";
         <div class="work-item work-item-@(i+1)" style="@hide">
-            <h5>Job number @(i+1)</h5>
+            <h5>Job number @(i + 1)</h5>
             <div class="row">
                 <div class="form-group col-lg-12">
                     @Html.LabelFor(model => Model.WorkItems[i].Title, "Job Title", null)
@@ -41,15 +41,13 @@
                 </div>
             </div>
             <hr />
-
-            <div style="float:right;">
-                <p style="display:inline"><i><a href="#" id="addWorkItem">Add other job</a></i></p>
-                <p style="display:inline"> or </p>
-                <input type="button" style="display:inline" value="Save" class="btn btn-success save-section" />
-            </div>
-            
         </div>
     }
+    <div style="float:right;">
+        <a href="#" style="display:inline" id="addWorkItem"><i class="fa fa-plus fa-2x"></i></a>
+        <p style="display:inline"> or </p>
+        <input type="button" style="display:inline" value="Save" class="btn btn-success save-section" />
+    </div>
 </div>
 
 <script src="~/Scripts/jquery-3.3.1.js"></script>
